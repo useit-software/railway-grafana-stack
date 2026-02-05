@@ -1,0 +1,37 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "services": {
+    "grafana": {
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "grafana/dockerfile"
+      },
+      "deploy": {
+        "healthcheckPath": "/api/health",
+        "healthcheckTimeout": 100
+      }
+    },
+    "prometheus": {
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "prometheus/dockerfile"
+      }
+    },
+    "loki": {
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "loki/dockerfile"
+      },
+      "deploy": {
+        "healthcheckPath": "/ready",
+        "healthcheckTimeout": 300
+      }
+    },
+    "tempo": {
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "tempo/dockerfile"
+      }
+    }
+  }
+}
