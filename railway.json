@@ -2,35 +2,55 @@
   "$schema": "https://railway.com/railway.schema.json",
   "services": {
     "grafana": {
+      "source": {
+        "rootDirectory": "/grafana"
+      },
       "build": {
         "builder": "DOCKERFILE",
-        "dockerfilePath": "grafana/dockerfile"
+        "dockerfilePath": "dockerfile"
       },
       "deploy": {
         "healthcheckPath": "/api/health",
         "healthcheckTimeout": 100
       }
     },
-    "prometheus": {
-      "build": {
-        "builder": "DOCKERFILE",
-        "dockerfilePath": "prometheus/dockerfile"
-      }
-    },
     "loki": {
+      "source": {
+        "rootDirectory": "/loki"
+      },
       "build": {
         "builder": "DOCKERFILE",
-        "dockerfilePath": "loki/dockerfile"
+        "dockerfilePath": "dockerfile"
       },
       "deploy": {
         "healthcheckPath": "/ready",
-        "healthcheckTimeout": 300
+        "healthcheckTimeout": 100
       }
     },
     "tempo": {
+      "source": {
+        "rootDirectory": "/tempo"
+      },
       "build": {
         "builder": "DOCKERFILE",
-        "dockerfilePath": "tempo/dockerfile"
+        "dockerfilePath": "dockerfile"
+      },
+      "deploy": {
+        "healthcheckPath": "/ready",
+        "healthcheckTimeout": 100
+      }
+    },
+    "prometheus": {
+      "source": {
+        "rootDirectory": "/prometheus"
+      },
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "dockerfile"
+      },
+      "deploy": {
+        "healthcheckPath": "/-/healthy",
+        "healthcheckTimeout": 100
       }
     }
   }
