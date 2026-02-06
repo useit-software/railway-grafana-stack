@@ -1,15 +1,13 @@
 server:
   http_listen_port: 3200
 
-compactor:
-  compaction:
-    compaction_window: 1h
-
 storage:
   trace:
     backend: local
     local:
       path: /var/tempo/traces
+    compactor:
+      compaction_window: 1h
 
 distributor:
   log_received_spans:
