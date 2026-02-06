@@ -6,8 +6,6 @@ storage:
     backend: local
     local:
       path: /var/tempo/traces
-    compactor:
-      compaction_window: 1h
 
 distributor:
   log_received_spans:
