@@ -4,4 +4,4 @@ FROM grafana/grafana-oss:${VERSION}
 
 # copy the datasources and dashboards
 COPY provisioning/datasources /etc/grafana/provisioning/datasources
-# COPY provisioning/alerting /etc/grafana/provisioning/alerting
+COPY provisioning/alerting /etc/grafana/provisioning/alerting
