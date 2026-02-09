@@ -51,6 +51,12 @@ services:
       - PROMETHEUS_INTERNAL_URL=http://prometheus:9090
       - TEMPO_INTERNAL_URL=http://tempo:3200
       - ALERT_EMAIL_ADDRESSES=your-team@example.com
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.gmail.com:587
+      - GF_SMTP_USER=${SMTP_USER}
+      - GF_SMTP_PASSWORD=${SMTP_PASSWORD}
+      - GF_SMTP_FROM_ADDRESS=${SMTP_USER}
+      - GF_SMTP_FROM_NAME=Grafana
   
   example_api: 
     build:
