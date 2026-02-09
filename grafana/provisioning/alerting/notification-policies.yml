@@ -4,7 +4,7 @@ policies:
   - orgId: 1
     receiver: email-team
     matchers:
-      - team = backend
+      - team=backend
     group_by:
       - alertname
       - project_uuid
