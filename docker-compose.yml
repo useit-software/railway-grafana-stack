@@ -50,6 +50,7 @@ services:
       - LOKI_INTERNAL_URL=http://loki:3100
       - PROMETHEUS_INTERNAL_URL=http://prometheus:9090
       - TEMPO_INTERNAL_URL=http://tempo:3200
+      - ALERT_EMAIL_ADDRESSES=your-team@example.com
   
   example_api: 
     build:
