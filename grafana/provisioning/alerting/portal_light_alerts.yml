@@ -14,7 +14,7 @@ groups:
             relativeTimeRange:
               from: 600
               to: 0
-            datasourceUid: grafana_prometheus 
+            datasourceUid: grafana_prometheus
             model:
               expr: portal_lights_up{project_uuid=~".*"}
               refId: A
@@ -27,7 +27,7 @@ groups:
               to: 0
             datasourceUid: grafana_prometheus
             model:
-              expr: max_over_time(portal_lights_up{project_uuid=~".*"}[5m])
+              expr: portal_lights_up{project_uuid=~".*"} offset 1m
               refId: B
               intervalMs: 1000
               maxDataPoints: 43200
@@ -41,12 +41,12 @@ groups:
 
         noDataState: OK
         execErrState: Error
-        for: 5m
+        for: 0s
         annotations:
           summary: Portal lights count dropped for {{ $labels.project_uuid }}
           description: |
             Current count: {{ $values.A.Value }}
-            Expected (5m max): {{ $values.B.Value }}
+            Previous count: {{ $values.B.Value }}
             Project: {{ $labels.project_uuid }}
         labels:
           severity: warning
