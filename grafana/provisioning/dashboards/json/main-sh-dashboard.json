@@ -1,0 +1,53 @@
+{
+  "uid": "main-sh-dashboard",
+  "title": "Main SH Dashboard",
+  "tags": [],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "refresh": "30s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "PORTAL LIGHTS UP",
+      "type": "timeseries",
+      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 0 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafana_prometheus"
+      },
+      "targets": [
+        {
+          "expr": "portal_lights_up_ratio",
+          "legendFormat": "{{project_uuid}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "min": 0,
+          "max": 30,
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "fillOpacity": 10,
+            "pointSize": 5,
+            "showPoints": "auto",
+            "spanNulls": false,
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisLabel": "",
+            "scaleDistribution": { "type": "linear" }
+          },
+          "color": { "mode": "palette-classic" }
+        },
+        "overrides": []
+      },
+      "options": {
+        "tooltip": { "mode": "multi", "sort": "none" },
+        "legend": { "displayMode": "list", "placement": "bottom" }
+      }
+    }
+  ],
+  "time": { "from": "now-6h", "to": "now" }
+}
