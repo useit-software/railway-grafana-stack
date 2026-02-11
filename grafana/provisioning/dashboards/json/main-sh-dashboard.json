@@ -59,7 +59,7 @@
       },
       "targets": [
         {
-          "expr": "assignations_created_ratio",
+          "expr": "assignations_created_total",
           "legendFormat": "{{project_uuid}}",
           "refId": "A"
         }
