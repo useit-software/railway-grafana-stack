@@ -8,7 +8,7 @@ groups:
     rules:
       - uid: portal_lights_dropped
         title: Portal Lights Count Dropped
-        condition: C
+        condition: F
         data:
           - refId: A
             relativeTimeRange:
@@ -35,9 +35,37 @@ groups:
           - refId: C
             datasourceUid: __expr__
             model:
-              type: math
-              expression: $A < $B
+              type: reduce
+              expression: A
+              reducer: last
               refId: C
+
+          - refId: D
+            datasourceUid: __expr__
+            model:
+              type: reduce
+              expression: B
+              reducer: last
+              refId: D
+
+          - refId: E
+            datasourceUid: __expr__
+            model:
+              type: math
+              expression: $C - $D
+              refId: E
+
+          - refId: F
+            datasourceUid: __expr__
+            model:
+              type: threshold
+              expression: E
+              refId: F
+              conditions:
+                - evaluator:
+                    type: lt
+                    params:
+                      - 0
 
         noDataState: OK
         execErrState: Error
@@ -45,8 +73,8 @@ groups:
         annotations:
           summary: Portal lights count dropped for {{ $labels.project_uuid }}
           description: |
-            Current count: {{ $values.A.Value }}
-            Previous count: {{ $values.B.Value }}
+            Current count: {{ $values.C.Value }}
+            Previous count: {{ $values.D.Value }}
             Project: {{ $labels.project_uuid }}
         labels:
           severity: warning
