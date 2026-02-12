@@ -16,7 +16,7 @@ groups:
               to: 0
             datasourceUid: grafana_prometheus
             model:
-              expr: portal_lights_up{project_uuid=~".*"}
+              expr: portal_lights_up_ratio{project_uuid=~".*"}
               refId: A
               intervalMs: 1000
               maxDataPoints: 43200
@@ -27,7 +27,7 @@ groups:
               to: 0
             datasourceUid: grafana_prometheus
             model:
-              expr: portal_lights_up{project_uuid=~".*"} offset 1m
+              expr: portal_lights_up_ratio{project_uuid=~".*"} offset 1m
               refId: B
               intervalMs: 1000
               maxDataPoints: 43200
