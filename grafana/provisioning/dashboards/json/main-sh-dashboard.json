@@ -18,7 +18,7 @@
       "targets": [
         {
           "expr": "portal_lights_up_ratio",
-          "legendFormat": "{{project_uuid}}",
+          "legendFormat": "{{project_name}}",
           "refId": "A"
         }
       ],
@@ -59,8 +59,9 @@
       },
       "targets": [
         {
-          "expr": "assignations_created_total",
-          "legendFormat": "{{project_uuid}}",
+          "expr": "increase(assignations_created_total[1d])",
+          "legendFormat": "{{project_name}}",
+          "interval": "1d",
           "refId": "A"
         }
       ],
@@ -74,14 +75,16 @@
             "lineWidth": 2,
             "fillOpacity": 10,
             "pointSize": 5,
-            "showPoints": "auto",
+            "showPoints": "always",
+            "pointSize": 8,
             "spanNulls": false,
             "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisLabel": "",
             "scaleDistribution": { "type": "linear" }
           },
-          "color": { "mode": "palette-classic" }
+          "color": { "mode": "palette-classic" },
+          "decimals": 0
         },
         "overrides": []
       },
@@ -102,7 +105,7 @@
       "targets": [
         {
           "expr": "devices_up_ratio",
-          "legendFormat": "{{project_uuid}}",
+          "legendFormat": "{{project_name}}",
           "refId": "A"
         }
       ],
