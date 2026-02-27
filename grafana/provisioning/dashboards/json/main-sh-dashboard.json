@@ -59,7 +59,8 @@
       },
       "targets": [
         {
-          "expr": "assignations_created_ratio",
+          "expr": "sum by (project_name) (increase(assignations_created_total[1d]))",
+          "interval": "1d",
           "legendFormat": "{{project_name}}",
           "refId": "A"
         }
