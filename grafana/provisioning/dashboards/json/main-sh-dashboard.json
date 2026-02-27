@@ -67,7 +67,7 @@
       "fieldConfig": {
         "defaults": {
           "min": 0,
-          "max": 20,
+          "max": 40,
           "custom": {
             "drawStyle": "line",
             "lineInterpolation": "linear",
