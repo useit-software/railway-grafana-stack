@@ -59,7 +59,7 @@
       },
       "targets": [
         {
-          "expr": "assignations_created_ratio",
+          "expr": "assignations_created_today_ratio",
           "legendFormat": "{{project_name}}",
           "refId": "A"
         }
