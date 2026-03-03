@@ -115,7 +115,6 @@
             "lineInterpolation": "linear",
             "lineWidth": 2,
             "fillOpacity": 10,
-            "pointSize": 5,
             "showPoints": "always",
             "pointSize": 8,
             "spanNulls": false,
