@@ -49,10 +49,52 @@
       }
     },
     {
+      "id": 5,
+      "title": "PORTAL LIGHTS UP",
+      "type": "stat",
+      "gridPos": { "h": 6, "w": 24, "x": 0, "y": 6 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafana_prometheus"
+      },
+      "targets": [
+        {
+          "expr": "portal_lights_up_ratio",
+          "legendFormat": "{{project_name}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red", "value": 80 }
+            ]
+          },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": ["max", "lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "auto",
+        "textMode": "value_and_name",
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto"
+      }
+    },
+    {
       "id": 1,
       "title": "PORTAL LIGHTS UP",
       "type": "timeseries",
-      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 6 },
+      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 12 },
       "datasource": {
         "type": "prometheus",
         "uid": "grafana_prometheus"
@@ -94,7 +136,7 @@
       "id": 2,
       "title": "ASSIGNATIONS CREATED",
       "type": "timeseries",
-      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 18 },
+      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 24 },
       "datasource": {
         "type": "prometheus",
         "uid": "grafana_prometheus"
@@ -138,7 +180,7 @@
       "id": 3,
       "title": "DEVICES UP",
       "type": "timeseries",
-      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 30 },
+      "gridPos": { "h": 12, "w": 24, "x": 0, "y": 36 },
       "datasource": {
         "type": "prometheus",
         "uid": "grafana_prometheus"
