@@ -8,7 +8,7 @@ common:
     kvstore:
       store: inmemory
   replication_factor: 1
-  path_prefix: /loki2
+  path_prefix: /loki
 schema_config:
   configs:
     - from: 2025-01-01
@@ -20,12 +20,12 @@ schema_config:
       schema: v13
 storage_config:
   tsdb_shipper:
-    active_index_directory: /loki2/tsdb-index
-    cache_location: /loki2/tsdb-cache
+    active_index_directory: /loki/tsdb-index
+    cache_location: /loki/tsdb-cache
   filesystem:
-    directory: /loki2/chunks
+    directory: /loki/chunks
 compactor:
-  working_directory: /loki2/compactor
+  working_directory: /loki/compactor
   compaction_interval: 10m
   retention_enabled: true
   delete_request_store: filesystem
